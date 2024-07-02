@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <!-- Include any necessary CSS or JavaScript libraries for styling or functionality -->
+		  <link rel="stylesheet" href="{% static 'calendar_app/style6.css' %}">
+
+</head>
+<body>
+    <h1>Calendar - {{ month_name }} {{ year }}</h1>
+
+    <!-- Calendar navigation: Form to select year and month -->
+	<div class="filter">
+    <form method="GET" action="{% url 'calview' %}">
+        <label for="id_year">Year:</label>
+        <input id="id_year" name="year" type="number" value="{{ year }}">
+        
+        <label for="id_month">Month:</label>
+        <input id="id_month" name="month" type="number" min="1" max="12" value="{{ month }}">
+        
+        <button type="submit">Go</button>
+    </form>
+	</div>
+
+    <!-- Calendar display -->
+	<div class="cal">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in calendar %}
+                <tr>
+                    {% for day in week %}
+                        {% if day == 0 %}
+                            <td></td>
+                        {% else %}
+                            <td>
+                                <strong>{{ day }}</strong><br>
+                                {% for task in combined_data %}
+                                    {% if task.date.day == day %}
+                                        {{ task.title }}<br>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+	</div>
+
+    <!-- Display tasks for each date (alternative format) -->
+    <ul>
+        {% for task in combined_data %}
+            <li>{{ task.date|date:"D, d M Y" }} - {{ task.title }} at {{task.time}}<br>Description:{{task.description}}</li>
+            <!-- Adjust as needed to display other task details -->
+        {% empty %}
+            <li>No tasks found for this month.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
