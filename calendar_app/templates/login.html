@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log In</title>
+	<link rel="stylesheet" href="{% static 'calendar_app/style.css' %}">
+   <style>
+   
+
+#but1{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:90px;
+}
+
+h2{
+margin-left:90px;
+color:white;
+}
+
+label{
+ color:white;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /* background-color: #333;*/
+    color: #fff;
+    padding: 10px 20px;
+ }
+        
+ .logo {
+     font-size: 24px;
+     font-weight: bold;
+ }
+        
+        
+  .nav-links {
+     list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+  }
+        
+ .nav-links li {
+      margin-left: 20px;
+  }
+        
+ .nav-links li:first-child {
+     /*margin-left: 0;*/
+  }
+        
+ .nav-links a {
+     text-decoration: none;
+     color: white;
+     transition: color 0.3s ease;
+	 margin-right:20px;
+  }
+        
+  .nav-links a:hover {
+      color: #ffcc00;
+  }
+  
+  .nav-links2{
+     list-style-type:none;
+     display:flex;
+    <!-- background-color:grey;-->
+	 padding-bottom:100px;
+	 margin-bottom:-100px;
+	 padding-left:100px;
+	 margin-left:-100px;
+  }
+  
+  .nav-links2 li{
+     margin-bottom:10px;
+	 margin-left:30px;
+	 margin-top:50px;
+	 
+  }
+   .nav-links2 a{
+    text-decoration:none;
+	color:white;
+   }
+   </style>
+</head>
+<body>
+<!-- <p>header section</p> -->
+	  <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+			<li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+	
+    <div class="container">
+    <h2>User  LogIn</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="but1" type="submit">Log In</button>
+    </form>
+	</div>
+	
+	<nav>
+	  <ul class="nav-links2">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Term of Use</a></li>
+			<li><a href="#">About Us</a></li>
+        </ul>
+	</nav>
+</body>
+</html>

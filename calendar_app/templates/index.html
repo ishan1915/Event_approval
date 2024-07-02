@@ -1,0 +1,37 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+	<link rel="stylesheet" href="{% static 'calendar_app/style3.css' %}"> <!--using style3.css file  -->
+    <style>
+      
+    </style>
+</head>
+<body>
+
+  <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            
+            <!--<li><a href="{% url 'displaytask2' %}">Task View</a></li>-->
+			
+			<li><a href="{% url 'logout' %}">Logout</a></li>
+			
+        </ul>
+    </nav>
+	
+<div id="dd">
+  <h2>Department Selection</h2>	
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Go</button>
+  </form>	
+</div>
+	
+
+</body>
+</html>
