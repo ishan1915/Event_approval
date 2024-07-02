@@ -1,0 +1,59 @@
+{% load custom_tags %}
+{% load static %}
+ <!-- calendar.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+	<link rel="stylesheet" href="{% static 'calendar_app/style1.css' %}">
+    <style>
+      
+    </style>
+</head>
+<body>
+     <nav>
+        <div class="logo">Logo</div>
+        <ul class="nav-links">
+            
+            <li><a href="{% url 'displaytask' %}">Task View</a></li>
+			<li><a href="{% url 'task_list' %}">Task  Approved</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+			
+        </ul>
+    </nav>
+    <div class ="cal" >
+	<h2>Department 1<h2>
+    <h1 class="calc">Calendar Input </h1>
+    
+    <!-- Task form -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Task</button>
+    </form>
+    
+	</div>
+	<!-- <a href=" {% url 'logout' %}">Log Out</a>-->
+    
+   <!-- <h2>Tasks</h2>
+	
+	
+	
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.date }} - {{ task.title }} 
+			<button type="button" onclick="toggleDescription('{{ task.id }}')">Show Description</button>
+                <div id="description-{{ task.id }}" class="task-description">{{ task.description }}</div>
+			
+			</li>
+        {% endfor %}
+    </ul>
+    -->
+	
+	<div class = "foot">
+	<p>footer here</p>
+	</div>
+</body>
+</html>

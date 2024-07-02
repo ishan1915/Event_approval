@@ -1,0 +1,28 @@
+<!-- templates/task_list2.html -->
+
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'calendar_app/style5.css' %}">
+
+<title>Approved Tasks</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Approved Tasks</h1>
+        <ul class="task-list">
+            {% for task in tasks %}
+            <li>
+                <span class="task-title">{{ task.title }}</span>
+                <span class="task-date">{{ task.date }} {{ task.time }}</span>
+				<span class="task-dat">{{ task.description }} </span>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
