@@ -168,7 +168,7 @@ def calendar_view2(request):
             task = form.save(commit=False)
             task.user = request.user  # Assign the current user to the task
             task.save()
-            return redirect('calendar')
+            return redirect('calendar2')
        else:
            form = TaskForm2()
     
