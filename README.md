@@ -1,4 +1,4 @@
-Here’s an updated README for your **Event Approval Tool** without the use of APIs, focusing on department-wise event creation and admin approval, followed by a unified calendar view of all approved events.
+Here’s an updated README for your **Event Approval Tool**  , focusing on department-wise event creation and admin approval, followed by a unified calendar view of all approved events.
 
 ---
 
